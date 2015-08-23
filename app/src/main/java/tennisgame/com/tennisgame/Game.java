@@ -15,13 +15,13 @@ public class Game {
     private SurfaceHolder holder;
     private Resources resources;
 
-    private Sprite ball;
+    private Ball ball;
 
     public Game(SurfaceHolder holder, Resources resources, int width, int height){
         this.holder = holder;
         this.resources = resources;
 
-        ball = new Sprite(width, height);
+        ball = new Ball(width, height);
     }
 
     public void init(){
@@ -30,7 +30,7 @@ public class Game {
     }
 
     public void update(long elapsed){
-
+        ball.update(elapsed);
     }
 
     public void draw(){
