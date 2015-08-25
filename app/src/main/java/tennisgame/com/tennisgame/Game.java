@@ -16,17 +16,23 @@ public class Game {
     private Resources resources;
 
     private Ball ball;
+    private Bat player;
+    private Bat opponent;
 
     public Game(SurfaceHolder holder, Resources resources, int width, int height){
         this.holder = holder;
         this.resources = resources;
 
         ball = new Ball(width, height);
+        player = new Bat(width, height);
+        opponent = new Bat(width, height);
     }
 
     public void init(){
         Bitmap ballimage = BitmapFactory.decodeResource(resources, R.drawable.ic_launcher);
         ball.init(ballimage);
+        player.init(ballimage);
+        opponent.init(ballimage);
     }
 
     public void update(long elapsed){
@@ -42,8 +48,8 @@ public class Game {
             canvas.drawColor(Color.WHITE);
 
             ball.draw(canvas);
-
-            //canvas.drawBitmap(button, 50, 50, null);
+            player.draw(canvas);
+            opponent.draw(canvas);
 
             holder.unlockCanvasAndPost(canvas);
         }

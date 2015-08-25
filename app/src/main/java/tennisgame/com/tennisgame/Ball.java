@@ -7,8 +7,8 @@ import android.graphics.Rect;
  */
 public class Ball extends Sprite{
 
-    private float speedX = 0.05f;
-    private float speedY = 0.05f;
+    private float speedX = 0.5f;
+    private float speedY = 0.5f;
 
     private int directionX = 1;
     private int directionY = 1;
