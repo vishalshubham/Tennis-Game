@@ -24,15 +24,18 @@ public class Game {
         this.resources = resources;
 
         ball = new Ball(width, height);
-        player = new Bat(width, height);
-        opponent = new Bat(width, height);
+        player = new Bat(width, height, Bat.Position.LEFT);
+        opponent = new Bat(width, height, Bat.Position.RIGHT);
     }
 
     public void init(){
         Bitmap ballimage = BitmapFactory.decodeResource(resources, R.drawable.ic_launcher);
+        Bitmap playerBatImage = BitmapFactory.decodeResource(resources, R.drawable.player_bat);
+        Bitmap opponentBatImage = BitmapFactory.decodeResource(resources, R.drawable.opponent_bat);
+
         ball.init(ballimage);
-        player.init(ballimage);
-        opponent.init(ballimage);
+        player.init(playerBatImage);
+        opponent.init(opponentBatImage);
     }
 
     public void update(long elapsed){
