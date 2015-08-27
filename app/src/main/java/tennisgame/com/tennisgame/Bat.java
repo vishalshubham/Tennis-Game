@@ -9,6 +9,10 @@ import java.text.FieldPosition;
  */
 public class Bat extends Sprite {
 
+    public void setPosition(float y) {
+        setY(y-getRect().centerY());
+    }
+
     public enum Position{
         LEFT, RIGHT
     }
@@ -25,7 +29,7 @@ public class Bat extends Sprite {
     public void init(Bitmap image) {
         super.init(image);
 
-        setY(getHeight()/2 - getRect().centerY());
+        setY(getHeight() / 2 - getRect().centerY());
         if(position == Position.LEFT){
             setX(margin);
         } else if(position == Position.RIGHT){

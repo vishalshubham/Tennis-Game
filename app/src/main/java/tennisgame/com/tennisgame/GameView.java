@@ -34,20 +34,7 @@ public class GameView extends SurfaceView implements android.view.SurfaceHolder.
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        //SurfaceHolder holder = getHolder();
-
-        /*Canvas canvas = holder.lockCanvas();
-
-        if(canvas!=null){
-
-            canvas.drawColor(Color.WHITE);
-
-            canvas.drawBitmap(button, 50, 50, null);
-
-            Log.d("VC", "----------------------Should draw1");
-
-            holder.unlockCanvasAndPost(canvas);
-        }*/
+        game.onToucnEvent(event);
 
         return true;
     }

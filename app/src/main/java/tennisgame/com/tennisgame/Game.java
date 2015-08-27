@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 /**
@@ -55,6 +56,14 @@ public class Game {
             opponent.draw(canvas);
 
             holder.unlockCanvasAndPost(canvas);
+        }
+    }
+
+    public void onToucnEvent(MotionEvent event) {
+        player.setPosition(event.getY());
+
+        if(event.getAction() == MotionEvent.ACTION_MOVE){
+
         }
     }
 }
