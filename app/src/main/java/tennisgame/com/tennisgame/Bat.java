@@ -10,7 +10,7 @@ import java.text.FieldPosition;
 public class Bat extends Sprite {
 
     public void setPosition(float y) {
-        setY(y-getRect().centerY());
+        setY(y - getRect().centerY());
     }
 
     public enum Position{
