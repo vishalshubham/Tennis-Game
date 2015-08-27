@@ -18,8 +18,6 @@ public class Sprite {
     private Rect bounds;
 
     public Sprite(int width, int height){
-        this.x = 30;
-        this.y = 30;
         this.width = width;
         this.height = height;
     }
