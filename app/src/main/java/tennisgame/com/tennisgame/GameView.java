@@ -30,15 +30,6 @@ public class GameView extends SurfaceView implements Drawable.Callback{
     public boolean onTouchEvent(MotionEvent event) {
 
         SurfaceHolder holder = getHolder();
-        Canvas canvas = holder.lockCanvas();
-
-        if(canvas!=null){
-            canvas.drawColor(Color.WHITE);
-
-            canvas.drawBitmap(button, 50, 50, null);
-
-            holder.unlockCanvasAndPost(canvas);
-        }
 
         return true;
     }
@@ -48,7 +39,7 @@ public class GameView extends SurfaceView implements Drawable.Callback{
     }
 
     public void surfaceCreated(SurfaceHolder holder){
-        game = new Game(holder, getResources());
+        game = new Game(holder, getResources(), getWidth(), getHeight());
         runner = new GameRunner(game);
         runner.start();
     }

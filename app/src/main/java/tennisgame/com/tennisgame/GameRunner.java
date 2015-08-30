@@ -10,12 +10,14 @@ public class GameRunner extends Thread {
     private Game game;
     private volatile boolean running = true;
 
-    GameRunner(Game game){
-
+    public GameRunner(Game game){
+        this.game = game;
     }
 
     @Override
     public void run() {
+
+        game.init();
 
         long lastTime=System.currentTimeMillis();
         while(running){
