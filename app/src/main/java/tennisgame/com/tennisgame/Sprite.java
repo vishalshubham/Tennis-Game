@@ -31,6 +31,7 @@ public class Sprite {
 
     public void draw(Canvas canvas){
 
+
         canvas.drawBitmap(image, x, y, null);
     }
 

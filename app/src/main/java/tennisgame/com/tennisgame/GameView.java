@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -14,7 +15,7 @@ import android.view.SurfaceView;
 /**
  * Created by Vishal on 29/08/2015.
  */
-public class GameView extends SurfaceView implements Drawable.Callback{
+public class GameView extends SurfaceView implements android.view.SurfaceHolder.Callback{
 
     private Bitmap button;
     private GameRunner runner;
@@ -23,19 +24,32 @@ public class GameView extends SurfaceView implements Drawable.Callback{
     public GameView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        button = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+        SurfaceHolder holder = getHolder();
+
+        holder.addCallback(this);
+
+        //button = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        SurfaceHolder holder = getHolder();
+        //SurfaceHolder holder = getHolder();
+
+        /*Canvas canvas = holder.lockCanvas();
+
+        if(canvas!=null){
+
+            canvas.drawColor(Color.WHITE);
+
+            canvas.drawBitmap(button, 50, 50, null);
+
+            Log.d("VC", "----------------------Should draw1");
+
+            holder.unlockCanvasAndPost(canvas);
+        }*/
 
         return true;
-    }
-
-    public void surfaceChanged(){
-
     }
 
     public void surfaceCreated(SurfaceHolder holder){
@@ -44,7 +58,12 @@ public class GameView extends SurfaceView implements Drawable.Callback{
         runner.start();
     }
 
-    public void surfaceDestroyed(){
+    @Override
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
+    }
+
+    public void surfaceDestroyed(SurfaceHolder holder){
         if(runner != null){
             runner.shutdown();
             while(runner!=null){

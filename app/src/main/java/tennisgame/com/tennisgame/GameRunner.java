@@ -22,13 +22,8 @@ public class GameRunner extends Thread {
         long lastTime=System.currentTimeMillis();
         while(running){
 
-            /*Log.d("","Thread Running");
+            Log.d("VC","Thread Running");
 
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }*/
             long now = System.currentTimeMillis();
             long elapsed = now - lastTime;
 
